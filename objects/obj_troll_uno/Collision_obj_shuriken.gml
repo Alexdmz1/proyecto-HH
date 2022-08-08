@@ -1,0 +1,3 @@
+/// @description 
+
+cambiarsprite=true;
