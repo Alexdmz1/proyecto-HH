@@ -1,7 +1,7 @@
 /// @description
 
-global.reaparecerX =0;
-global.reaparecerY =0;
+global.reaparecerX =obj_jugador.x;
+global.reaparecerY =obj_jugador.y;
 
 enum ESCUADRON{
 	NEUTRAL,

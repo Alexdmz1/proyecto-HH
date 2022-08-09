@@ -1,7 +1,8 @@
 /// @description CONDICIONES INICIALES
 //contadorDeSaltos=0;
+lives=3;
 event_inherited();
-
+global.saludH=100;
 //rapidezBala = 6; 
 tiempoDeDisparo=0;
 arma = -1;

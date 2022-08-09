@@ -2,7 +2,7 @@
 
 // definir direccion
 
-if(!instance_exists(obj_jugador)) exit;
+//if(!instance_exists(obj_jugador)) exit;
 
 
 if hspeed = derecha{
@@ -47,55 +47,104 @@ if place_free(x,y+1){
 // if player exist
 
 
-if place_meeting(x-300,y,obj_jugador) || place_meeting(x+300,y,obj_jugador)
+if place_meeting(x-270,y,obj_jugador) || place_meeting(x+270,y,obj_jugador)
 {
-	detectar=1;
-}else{detectar=0;}
+	detectar=true;
+}
+else
+{
+	detectar=false;
+	
+}
 
-if(detectar==1)
+if(detectar==true)
 {
-	if(x>obj_jugador.x)
-	{
+	switch(estado){
+		case ESTADO_ENEMIGO.CAMINAR:
+	
+			if (estadoInterno == 0) //entrar
+			{
+				estadoInterno = 1;
+				sprite_index = spr_troll_caminar;
+				
 		
-		image_xscale=-1;
-		if(point_distance(x,y,obj_jugador.x,obj_jugador.y) <250)
-		{
-			sprite_index= spr_troll_ataque;
-			hspeed=0;
+			}
+			if (estadoInterno == 1) //actualizar
+			{
+				if(x>obj_jugador.x){
+					
+					hspeed =izquierda;
+					direccion=1;
+					//detectar=false;
+					
+				}
+				if(x<obj_jugador.x){
+				
+					hspeed =derecha;
+					direccion=0;
+					//detectar=false;
+					
+				}
+				if(point_distance(obj_troll_uno.x,obj_troll_uno.y,obj_jugador.x,obj_jugador.y) <=270)
+				{
+	
+					cambiarEstado(ESTADO_ENEMIGO.ATACAR);
+					
+				}
+			}
+			
+			if (estadoInterno == 2) //exit
+			{
+				estado = siguienteEstado;
+				estadoInterno = 0;
+			}			
+			break;
+		case ESTADO_ENEMIGO.ATACAR:
+	
+			if(estadoInterno==0)
+			{
+				estadoInterno=1;
+				sprite_index=spr_troll_ataque;
+				hspeed=0;
+				//detectar=false;
+			}
+		
+			if(estadoInterno==1){
+				
+				if(x>obj_jugador.x)
+				{
+				
+					image_xscale=-1;
+					instance_create_layer(x-200,y-50,"Instances",obj_golpe);
+				}
+				if(x<obj_jugador.x)
+				{
+					image_xscale=1;
+					instance_create_layer(x+200,y-50,"Instances",obj_golpe);
+					
 
+				}
+				
+				if(point_distance(obj_troll_uno.x,obj_troll_uno.y,obj_jugador.x,obj_jugador.y) >270)
+				{
+					//detectar=false;
+					cambiarEstado(ESTADO_ENEMIGO.CAMINAR);
+					instance_destroy(obj_golpe);
 			
-			
-		}
-		else
-		{
-			sprite_index= spr_troll_caminar;
-			hspeed =izquierda;
-			direccion=1;
-			detectar=0;
-			
-		}
-	}
-	if(x<obj_jugador.x)
-	{
-		image_xscale=1;
-		if(point_distance(x,y,obj_jugador.x,obj_jugador.y) <250)
-		{
-			sprite_index= spr_troll_ataque;
-			hspeed=0;
+				}
+	
 
-			
-			
-		}
-		else
-		{
-			sprite_index= spr_troll_caminar;
-			hspeed =derecha;
-			direccion=0;
-			detectar=0;
-			
-		}
+			}
+
+			if (estadoInterno == 2) //exit
+			{
+				estado = siguienteEstado;
+				estadoInterno = 0;
+			}
+			break;
 	}
 }
 
 
 #endregion
+

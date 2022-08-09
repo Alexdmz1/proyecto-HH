@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_shuriken",
-    "path": "sprites/spr_shuriken/spr_shuriken.yy",
+    "name": "spr_brisa_ballr",
+    "path": "sprites/spr_brisa_ballr/spr_brisa_ballr.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,10 +22,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_troll_uno","path":"objects/obj_troll_uno/obj_troll_uno.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +31,7 @@
     "path": "folders/Objects/objetos_armas.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_shuriken",
+  "name": "obj_brisa_ballr",
   "tags": [],
   "resourceType": "GMObject",
 }

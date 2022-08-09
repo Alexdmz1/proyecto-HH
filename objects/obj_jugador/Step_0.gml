@@ -104,6 +104,11 @@ switch (estado)
 			else if (brincar){
 				cambiarEstado(ESTADO_JUGADOR.BRINCAR);
 			}
+			if(disparo){
+				cambiarEstado(ESTADO_JUGADOR.DISPARAR);
+				crear_arma(0,image_xscale*velocidadCaminar*2,escuadron,arma);
+				
+			}
 
 		}
 		
@@ -296,18 +301,17 @@ switch (estado)
 				tiempoDeDisparo=0;
 				
 			}
-			else if (estaEnTierra()&&(tiempoDeDisparo==20) && (!moverse_derecha || !moverse_izquerda))//  && hsp==0 quiza usarse
-			{
-				
-				cambiarEstado(ESTADO_JUGADOR.REPOSO);
-				tiempoDeDisparo=0;
-				
-			}
 			else if(!estaEnTierra()&&tiempoDeDisparo==20){
 				cambiarEstado(ESTADO_JUGADOR.CALLENDO);
 				tiempoDeDisparo=0;
 				}
-			
+			if (estaEnTierra()&&(tiempoDeDisparo==20) && (moverse_derecha || moverse_izquerda))//  && hsp==0 quiza usarse
+			{
+				
+				cambiarEstado(ESTADO_JUGADOR.CORRER);
+				tiempoDeDisparo=0;
+				
+			}
 		}
 		
 		

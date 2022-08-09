@@ -11,6 +11,9 @@ draw_text(obj_jugador.x,obj_jugador.y-60,"movimiento h: "+ string(movimientoHori
 
 draw_text(obj_jugador.x,obj_jugador.y-80,"tiempo de disparo: "+ string(tiempoDeDisparo));
 
+draw_text(obj_jugador.x,obj_jugador.y+20,"salud: "+ string(global.saludH));
+
+
 
 
 
