@@ -1,20 +1,16 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description estado inicial
+
+
+#region // CONDICIONES INICIALES
 cambiarsprite=false;
-#region// autodestruirse
-//alarm[0] = 5*room_speed;
-#endregion
 detectar=false;
-direccion = 0;
-derecha = 2;
-izquierda= -2;
-//walkspd=4;
-hspeed = derecha;
-
-//event_inherited();
+atacar=false;
+velocidadDerecha = 2;
+velocidadIzquierda= -2;
+hspeed = velocidadDerecha;
+direccion = 0; // derecha=0, izquierda=1;
 trollSalud = 100;
-
-
+#endregion
 
 #region//ESTADOS DEL JUGADOR
 enum ESTADO_ENEMIGO
@@ -30,10 +26,11 @@ estadoInterno = 0; //0-entrar, 1-actualizar, 2-salir
 siguienteEstado = estado;
 #endregion
 
-#region//Cambiar estado
+#region//CAMBIAR ESTADO
 cambiarEstado = function(estadoSiguiente)
 {
-	siguienteEstado = estadoSiguiente;
 	estadoInterno = 2;
+	siguienteEstado = estadoSiguiente;
+	
 }
 #endregion
